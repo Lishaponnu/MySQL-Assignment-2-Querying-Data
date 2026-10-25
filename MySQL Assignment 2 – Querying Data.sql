@@ -8,7 +8,7 @@ CREATE TABLE Location (location_id INT PRIMARY KEY AUTO_INCREMENT, Location_Name
 CREATE TABLE Employees (employee_id INT PRIMARY KEY, employee_name VARCHAR(100) NOT NULL, 
 age INT CHECK (age >= 18),
 gender CHAR(1) CHECK (gender IN ('M','F')),
-designation VARCHAR(100),
+designation VARCHAR(255),
 department_id INT, 
 location_id INT, 
 hire_date DATE DEFAULT (CURRENT_DATE),
@@ -32,7 +32,7 @@ ALTER TABLE Employees
 ADD email VARCHAR(150);
 
 ALTER TABLE Employees 
-MODIFY designation VARCHAR(200);
+MODIFY designation VARCHAR(255);
 
 ALTER TABLE Employees
 DROP COLUMN age;
@@ -71,6 +71,7 @@ designation VARCHAR(100),
 department_id INT,
 location_id INT,
 hire_date DATE DEFAULT (CURRENT_DATE),
+email VARCHAR(150);
 
 CONSTRAINT fk_employee_department
 FOREIGN KEY (department_id)
